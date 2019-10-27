@@ -99,7 +99,7 @@ function removePost(index) {
 // Rendering post from list
 function renderPost() {
   let result_post = document.querySelector("#post-result");
-  let template = result_post.querySelector(".card");
+  let template = document.querySelector("#post-template");
   result_post.innerHTML = "";
   for (i in posts) {
     let el = template.cloneNode(true);
