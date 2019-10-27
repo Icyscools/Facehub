@@ -3,6 +3,7 @@ var overlay = document.querySelector("#overlay");
 
 textarea.addEventListener("keydown", autosize);
 
+// Autosize text area
 function autosize(ev) {
   var el = this;
   console.log(ev);
@@ -19,6 +20,7 @@ function autosize(ev) {
   }
 }
 
+// Posts
 let posts = [
   {
     date: "27/10/2019, 01:22:00",
@@ -46,17 +48,56 @@ function sendingPost() {
   let text = textarea.value;
   if (text !== null && text != "") {
     let date = new Date();
-    posts.unshift({ date: `${date.toLocaleString("en-GB")}`, message: text });
     textarea.value = "";
-    renderPost();
+
+    // Should I sending my post to firebase?
+    // axios({
+    //   method: "POST",
+    //   url: "your-firebase-link",
+    //   data: {
+    //     date: `${date.toLocaleString("en-GB")}`,
+    //     message: text
+    //   }
+    // })
+    //   .then(res => {
+    //     // If success, I should update posts
+    //     console.log(res);
+    //     renderPost();
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+
+    posts.unshift({
+      date: `${date.toLocaleString("en-GB")}`,
+      message: text
+    });
   }
 }
 
 function removePost(index) {
+  // Should I remove my post from firebase?
+  // axios({
+  //   method: "POST",
+  //   url: "your-firebase-link",
+  //   data: {
+  //     date: `${date.toLocaleString("en-GB")}`,
+  //     message: text
+  //   }
+  // })
+  //   .then(res => {
+  //     // If success, I should update posts
+  //     console.log(res);
+  //     renderPost();
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
   posts.splice(index, 1);
   renderPost();
 }
 
+// Rendering post from list
 function renderPost() {
   let result_post = document.querySelector("#post-result");
   let template = result_post.querySelector(".card");
@@ -73,10 +114,23 @@ function renderPost() {
     ).innerText = `${posts[i].message}`;
     el.style.display = "block";
     result_post.appendChild(el);
-    console.log(i);
   }
 }
 
+// Event trigger when window load
 window.onload = function() {
+  // Can we loading post before rendering post ?
+  // axios({
+  //   method: "GET",
+  //   url: "your-firebase-link"
+  // })
+  //   .then(res => {
+  //     // Maybe posts will get here
+  //     console.log(res);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
+
   this.renderPost();
 };
