@@ -6,7 +6,6 @@ textarea.addEventListener("keydown", autosize);
 // Autosize text area
 function autosize(ev) {
   var el = this;
-  console.log(ev);
   if (ev.key === "Enter" && !ev.shiftKey) {
     sendingPost();
     ev.preventDefault();
@@ -62,7 +61,6 @@ function sendingPost() {
     //   .then(res => {
     //     // If success, I should update posts
     //     console.log(res);
-    //     renderPost();
     //   })
     //   .catch(err => {
     //     console.log(err);
@@ -72,6 +70,7 @@ function sendingPost() {
       date: `${date.toLocaleString("en-GB")}`,
       message: text
     });
+    renderPost();
   }
 }
 
