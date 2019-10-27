@@ -1,0 +1,141 @@
+body {
+  background: #fafafa;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
+#main {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+#left {
+  border-right: 1px solid #ccc;
+  height: auto;
+}
+
+#right {
+  border-left: 1px solid #ccc;
+}
+
+#right .card {
+  min-height: 8rem;
+}
+
+@media (max-width: 768px) {
+
+  #main {
+    display: block !important;
+    align-items: normal !important;
+  }
+
+  #left,
+  #middle,
+  #right {
+    border: none;
+    margin: 10px;
+  }
+
+  #right {
+    display: none;
+  }
+
+  #name {
+    text-align: center;
+  }
+
+  #name img {
+    max-width: 180px;
+  }
+}
+
+
+#logo span.left {
+  padding: 5px 3px;
+  border-radius: 3px;
+  background: black;
+  color: white;
+}
+
+#logo span.right {
+  background: orange;
+  margin: 0 4px;
+  border-radius: 3px;
+}
+
+#name * {
+  display: inline-block;
+}
+
+#name img {
+  width: 100%;
+  height: auto;
+}
+
+#post .card-text .img {
+  position: absolute;
+  padding-top: 3px;
+}
+
+#post .card-text .img img {
+  max-width: 30px;
+}
+
+#post .card-text .text {
+  padding-left: 50px;
+}
+
+#post .card-text .text textarea {
+  padding: 0 !important;
+  border: none;
+  resize: none;
+}
+
+#post .card-footer {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+textarea::-webkit-input-placeholder {
+  font-size: 1.2rem;
+}
+
+textarea:-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 1.2rem;
+}
+
+textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 1.2rem;
+}
+
+textarea:-ms-input-placeholder {
+  font-size: 1.2rem;
+}
+
+textarea::placeholder {
+  font-size: 1.2rem;
+}
+
+#post-result div.card {
+  margin: 12.5px 0;
+}
+
+#post-result div.card .card-header * {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.pointer {
+  color: red;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
